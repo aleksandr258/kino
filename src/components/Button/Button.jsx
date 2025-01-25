@@ -1,11 +1,12 @@
+
 import styles from './Button.module.css';
+import cn from 'classnames';
 
 
-
-function Button (){
+function Button ({isInput}){
 	return (
 		<>
-			<button className={styles['button']}>Искать</button>
+			<button className={cn(styles['button'], {[styles['input-btn']]: isInput})}>Искать</button>
 		</>
 	);
 }

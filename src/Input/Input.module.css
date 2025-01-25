@@ -1,4 +1,29 @@
+/* .input {
+	
+}
+
+.input-wrap{
+	background: #12182900;
+
+} */
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+	background: #12182900;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+	padding-top: 20px;
+	background: #12182900;
+}
+
 .input {
+  padding-left: 40px; /* Оставляем место для иконки */
 	border: 1px solid #323B54;
 	background-color: #12182900;
 	border-radius: 12px;
@@ -12,7 +37,8 @@
 	color: #475069;
 }
 
-.input-wrap{
-	background: #12182900;
+.button{
+	margin-left: 8px;
+	margin-top: 20px;
 
 }
