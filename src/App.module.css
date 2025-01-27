@@ -8,3 +8,12 @@
   padding-left: 120px;
   padding-right: 120px;
 }
+
+.cards-menu{
+  display: grid;
+  margin-top: 80px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 16px;
+}
