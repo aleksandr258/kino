@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Button from './components/Button/Button';
+import Tittle from './components/Tittle/Tittle';
+import Paragraph from './components/Pargraph/Paragraph';
+import Input from './Input/Input';
+import styles from './App.module.css';
+import Header from './components/Header/Header';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0);
+	const [inputValue, setInputValue] = useState('');
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+	
+		<div className={styles['main-wrap']}>
+			<Header></Header>
+			<Tittle></Tittle>
+			<Paragraph></Paragraph>   
+			<Input
+				icon="find.svg"
+				textValue={inputValue}
+				onChange={(e) => setInputValue(e.target.value)}
+			/>
+		</div>
+			
+		
+	);
 }
 
-export default App
+export default App;
