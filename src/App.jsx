@@ -6,6 +6,8 @@ import Input from './Input/Input';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
 import Card from './components/Card.jsx/Card';
+import LoginForm from './components/LoginForm/LoginForm';
+import { useLocalStorage } from './hooks/use-localStorage.hook';
 
 
 function App() {
@@ -20,20 +22,33 @@ function App() {
 		{id: 8,name: 'Two And a Half Men', src: 'men.svg', stars: '324'}
 		
 	];
-	const [count, setCount] = useState(0);
-	const [inputValue, setInputValue] = useState('');
+
+	// const [user, setUser] = useState({name: '', isLogined: false});
+	const [user, setUser] = useLocalStorage('user', { name: '', isLogined: false });
+
+	const addUser = (userName) => {
+		setUser({name: userName, isLogined: true});
+	}; 
+
+	const logoutUser = () => {
+		setUser({name: '', isLogined: false});
+	};
 
 
 	return (
 	
 		<div className={styles['main-wrap']}>
-			<Header></Header>
-			<Tittle></Tittle>
+			<Header 
+			  user={user}
+				logoutUser={logoutUser}
+			/>
+			<Tittle 
+				value={'Поиск'}
+			/>
 			<Paragraph></Paragraph>   
 			<Input
 				icon="find.svg"
-				textValue={inputValue}
-				onChange={(e) => setInputValue(e.target.value)}
+				textValue={'Введите название'}
 			/>
 			<div className={styles['cards-menu']}>
 				{films.map(e => (
@@ -44,8 +59,11 @@ function App() {
 						stars={e.stars}
 					/>
 				))}
-
 			</div>
+			<LoginForm
+				addUser={addUser}
+				logoutUser={logoutUser}
+			/>
 		</div>
 			
 		

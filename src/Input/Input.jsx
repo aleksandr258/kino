@@ -4,18 +4,18 @@ import styles from './Input.module.css';
 
 
 
-function Input({ icon, textValue }) {
+function Input({ icon, textValue, onInputChange }) {
+	const iconCheck = icon ? <img src={icon} alt="search icon" className={styles['icon']} /> : null;
 	return (
 		<div className={styles['input-wrap']}>
-			<img src={icon} alt="search icon" className={styles['icon']} />
+			{iconCheck}
 			<input
 				type="text"
 				className={styles['input']}
-				value={textValue}
-				onChange={() => {}}
-				placeholder="Введите название"
+				onChange={onInputChange}
+				placeholder={textValue}
 			/>
-			<Button isInput={true}/>
+			{/* <Button isInput={true}/> */}
 		</div>
 	);
 }

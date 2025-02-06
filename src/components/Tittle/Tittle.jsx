@@ -2,10 +2,10 @@ import styles from './Tittle.module.css';
 
 
 
-function Tittle(){
+function Tittle({value}){
 	return (
 		<>
-			<h1 className={styles['tittle']}>Поиск</h1>
+			<h1 className={styles['tittle']}>{value}</h1>
 		</>
 	);
 }
