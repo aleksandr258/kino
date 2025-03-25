@@ -1,14 +1,13 @@
-import { useRef, useState } from 'react';
+import { useContext, useState } from 'react';
 import Input from '../../Input/Input';
 import Tittle from '../Tittle/Tittle';
 import styles from './LoginForm.module.css';
 import Button from '../Button/Button';
+import { UserContext } from '../context/user.context';
 
 
-
-function LoginForm({addUser, logoutUser}){
-	// const userName = useRef();
-
+function LoginForm(){
+	const { setUser } = useContext(UserContext);
 	const [userName, setUserName] = useState('Ваше имя');
 	const handleInputChange = (e) => {
 		e.preventDefault();
@@ -20,7 +19,8 @@ function LoginForm({addUser, logoutUser}){
 	const handleLogin = () => {
 		console.log(isValidName(userName));
 		if (isValidName(userName)){
-			addUser(userName);
+			console.log(userName);
+			setUser({name: userName, isLogined: true});
 		}else{
 			console.log(isValidName(userName));
 		}
